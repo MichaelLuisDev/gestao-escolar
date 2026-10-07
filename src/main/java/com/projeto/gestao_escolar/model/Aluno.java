@@ -1,8 +1,11 @@
 package com.projeto.gestao_escolar.model;
 
+import com.projeto.gestao_escolar.exception.RegraDeNegocioException;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+
+import static com.projeto.gestao_escolar.utils.ValidacaoUtils.validarTextoObrigatorio;
 
 @Entity
 @Table(name = "aluno")
