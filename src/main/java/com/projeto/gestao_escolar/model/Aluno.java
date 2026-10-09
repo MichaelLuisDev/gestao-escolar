@@ -18,7 +18,7 @@ public class Aluno {
     @Column(name = "nome_do_aluno", nullable = false)
     private String nomeAluno;
 
-    @Column(name = "cpf", nullable = false)
+    @Column(name = "cpf", nullable = false, unique = true)
     private String cpfAluno;
 
     @Column(name = "data_de_nascimento",nullable = false)
@@ -51,7 +51,7 @@ public class Aluno {
     @Column(name = "celular")
     private String celularAluno;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false,unique = true)
     private String emailAluno;
 
     @Column(name = "nome_da_mãe",nullable = false)
