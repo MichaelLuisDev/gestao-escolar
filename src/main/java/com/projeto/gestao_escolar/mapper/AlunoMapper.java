@@ -19,7 +19,6 @@ public interface AlunoMapper {
 
 
     //Entity -> ResponseDTO
-
     @Mapping(source = "nomeAluno", target = "nome_do_aluno")
     @Mapping(source = "cpfAluno", target = "cpf")
     @Mapping(source = "emailAluno", target = "email")
@@ -58,7 +57,6 @@ public interface AlunoMapper {
 
 
     //ATUALIZAÇÃO: RequestDTO -> Entity Existente
-
     @Mapping(target = "id", ignore = true) // Nunca sobrescreve o ID na atualização
     @Mapping(source = "nome_do_aluno", target = "nomeAluno")
     @Mapping(source = "cpf", target = "cpfAluno")
