@@ -1,3 +1,26 @@
 spring:
   application:
     name: gestao-escolar
+
+  # Configuração do Banco de Dados PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gestao_escolar
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: Michael8833 # Coloque a senha do seu usuário do PostgreSQL
+
+  # Configurações do JPA / Hibernate
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# Configuração de Logs (deve ficar no nível raiz, fora da chave 'spring')
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
