@@ -44,6 +44,8 @@ public class AlunoServiceImpl implements AlunoService {
                 alunoRepository.findById(id).orElseThrow(()->
                         new RecursoNaoEncontradoException("Aluno não localizado na base de dados"));
         alunoLocalizado.atualizarDados(aluno);
+        alunoLocalizado.validar();
+        alunoRepository.save(alunoLocalizado);
         return alunoLocalizado;
 
     }
