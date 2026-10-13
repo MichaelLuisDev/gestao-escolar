@@ -4,6 +4,7 @@ import com.projeto.gestao_escolar.exception.RegraDeNegocioException;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import static com.projeto.gestao_escolar.utils.ValidacaoUtils.validarTextoObrigatorio;
 
@@ -22,7 +23,7 @@ public class Professor {
     private String cpfProfessor;
 
     @Column(name = "data_de_nascimento",nullable = false)
-    private LocalDate dataDeNascimentoProfessor;
+    private Date dataDeNascimentoProfessor;
 
     @Column(name = "rg")
     private String rgProfessor;
@@ -66,7 +67,7 @@ public class Professor {
     public Professor(Long id,
                      String nomeProfessor,
                      String cpfProfessor,
-                     LocalDate dataDeNascimentoProfessor,
+                     Date dataDeNascimentoProfessor,
                      String rgProfessor,
                      String ruaProfessor,
                      String bairroProfessor,
@@ -114,7 +115,7 @@ public class Professor {
     }
 
     private void validarNomeProfessor(){
-        validarTextoObrigatorio(nomeProfessor,"nome do professor", 150);
+        validarTextoObrigatorio(nomeProfessor,"nome do professor", 200);
     }
     private void validarCpfProfessor(){
         validarTextoObrigatorio(cpfProfessor,"cpf do professor",30);
@@ -125,31 +126,31 @@ public class Professor {
         }
     }
     private void validarBairroProfessor(){
-        validarTextoObrigatorio(bairroProfessor,"bairro do professor",40);
+        validarTextoObrigatorio(bairroProfessor,"bairro do professor",100);
     }
     private void validarRuaProfessor(){
-        validarTextoObrigatorio(ruaProfessor,"rua do professor",20);
+        validarTextoObrigatorio(ruaProfessor,"rua do professor",100);
     }
     private void validarCepProfessor(){
         validarTextoObrigatorio(cepProfessor,"cep do professor",30);
     }
     private void validarEstadoProfessor(){
-        validarTextoObrigatorio(estadoProfessor,"estado do professor",30);
+        validarTextoObrigatorio(estadoProfessor,"estado do professor",50);
     }
     private void validarCidadeProfessor(){
-        validarTextoObrigatorio(cidadeProfessor,"cidade do professor",30);
+        validarTextoObrigatorio(cidadeProfessor,"cidade do professor",100);
     }
     private void validarUfProfessor(){
         validarTextoObrigatorio(ufProfessor,"uf do professor",5);
     }
     private void validarEmailProfessor(){
-        validarTextoObrigatorio(emailProfessor,"email do professor",50);
+        validarTextoObrigatorio(emailProfessor,"email do professor",254);
         if (!emailProfessor.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")) {
             throw new RegraDeNegocioException("Email inválido");
         }
     }
     private void validarAssinaturaProfessor(){
-        validarTextoObrigatorio(assinaturaProfessor,"assinatura do professor",50);
+        validarTextoObrigatorio(assinaturaProfessor,"assinatura do professor",200);
     }
 
     public void atualizarDados(Professor novoProfessor) {
@@ -196,11 +197,11 @@ public class Professor {
         this.cpfProfessor = cpfProfessor;
     }
 
-    public LocalDate getDataDeNascimentoProfessor() {
+    public Date getDataDeNascimentoProfessor() {
         return dataDeNascimentoProfessor;
     }
 
-    public void setDataDeNascimentoProfessor(LocalDate dataDeNascimentoProfessor) {
+    public void setDataDeNascimentoProfessor(Date dataDeNascimentoProfessor) {
         this.dataDeNascimentoProfessor = dataDeNascimentoProfessor;
     }
 
