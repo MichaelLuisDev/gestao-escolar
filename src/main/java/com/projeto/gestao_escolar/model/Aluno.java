@@ -4,6 +4,7 @@ import com.projeto.gestao_escolar.exception.RegraDeNegocioException;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import static com.projeto.gestao_escolar.utils.ValidacaoUtils.validarTextoObrigatorio;
 
@@ -22,7 +23,7 @@ public class Aluno {
     private String cpfAluno;
 
     @Column(name = "data_de_nascimento",nullable = false)
-    private LocalDate dataDeNascimentoAluno;
+    private Date dataDeNascimentoAluno;
 
     @Column(name = "rg")
     private String rgAluno;
@@ -69,7 +70,7 @@ public class Aluno {
     public Aluno(Long id,
                  String nomeAluno,
                  String cpfAluno,
-                 LocalDate dataDeNascimentoAluno,
+                 Date dataDeNascimentoAluno,
                  String rgAluno, String ruaAluno,
                  String bairroAluno,
                  String logadouroAluno,
@@ -131,10 +132,10 @@ public class Aluno {
     }
 
     private void validarBairroAluno(){
-        validarTextoObrigatorio(bairroAluno,"bairro do aluno",40);
+        validarTextoObrigatorio(bairroAluno,"bairro do aluno",150);
     }
     private void validarRuaAluno(){
-        validarTextoObrigatorio(ruaAluno,"rua do aluno",20);
+        validarTextoObrigatorio(ruaAluno,"rua do aluno",150);
     }
     private void validarCepAluno(){
         validarTextoObrigatorio(cepAluno,"cep do aluno",30);
@@ -143,23 +144,23 @@ public class Aluno {
         validarTextoObrigatorio(estadoAluno,"estado do aluno",30);
     }
     private void validarCidadeAluno(){
-        validarTextoObrigatorio(cidadeAluno,"cidade do aluno",30);
+        validarTextoObrigatorio(cidadeAluno,"cidade do aluno",100);
     }
     private void validarUfAluno(){
         validarTextoObrigatorio(ufAluno,"uf do aluno",5);
     }
     private void validarEmailAluno(){
-        validarTextoObrigatorio(emailAluno,"email do aluno",50);
+        validarTextoObrigatorio(emailAluno,"email do aluno",254);
         if (!emailAluno.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")) {
             throw new RegraDeNegocioException("Email inválido");
         }
     }
 
     private void validarMaeAluno(){
-        validarTextoObrigatorio(nomeMaeAluno,"nome da mãe",50);
+        validarTextoObrigatorio(nomeMaeAluno,"nome da mãe",200);
     }
     private void validarAssinaturaAluno(){
-        validarTextoObrigatorio(assinaturaAluno,"assinatura do aluno",50);
+        validarTextoObrigatorio(assinaturaAluno,"assinatura do aluno",200);
     }
 
     public void atualizarDados(Aluno novoAluno) {
@@ -209,11 +210,11 @@ public class Aluno {
         this.cpfAluno = cpfAluno;
     }
 
-    public LocalDate getDataDeNascimentoAluno() {
+    public Date getDataDeNascimentoAluno() {
         return dataDeNascimentoAluno;
     }
 
-    public void setDataDeNascimentoAluno(LocalDate dataDeNascimentoAluno) {
+    public void setDataDeNascimentoAluno(Date dataDeNascimentoAluno) {
         this.dataDeNascimentoAluno = dataDeNascimentoAluno;
     }
 
