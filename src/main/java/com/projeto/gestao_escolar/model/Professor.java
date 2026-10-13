@@ -12,7 +12,7 @@ import static com.projeto.gestao_escolar.utils.ValidacaoUtils.validarTextoObriga
 public class Professor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nome_do_professor", nullable = false)
