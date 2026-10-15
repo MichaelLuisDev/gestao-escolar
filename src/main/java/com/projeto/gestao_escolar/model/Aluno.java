@@ -1,10 +1,13 @@
 package com.projeto.gestao_escolar.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projeto.gestao_escolar.exception.RegraDeNegocioException;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import static com.projeto.gestao_escolar.utils.ValidacaoUtils.validarTextoObrigatorio;
 
@@ -63,6 +66,10 @@ public class Aluno {
 
     @Column(name = "assinatura_do_aluno",nullable = false)
     private String assinaturaAluno;
+
+    @ManyToMany(mappedBy = "alunos")
+    @JsonIgnore // Importante para não travar o JSON se for retornar para uma API
+    private Set<Turma> turmas = new HashSet<>();
 
     public Aluno() {
     }
