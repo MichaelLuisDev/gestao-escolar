@@ -1,7 +1,7 @@
 package com.projeto.gestao_escolar.utils;
 
 import com.projeto.gestao_escolar.exception.RegraDeNegocioException;
-import com.projeto.gestao_escolar.model.TurnoTurma;
+import com.projeto.gestao_escolar.model.Enum.TurnoTurma;
 
 public class ValidacaoUtils {
 

@@ -1,6 +1,7 @@
 package com.projeto.gestao_escolar.model;
 
 import com.projeto.gestao_escolar.exception.RegraDeNegocioException;
+import com.projeto.gestao_escolar.model.Enum.TurnoTurma;
 import jakarta.persistence.*;
 
 import java.util.Date;
